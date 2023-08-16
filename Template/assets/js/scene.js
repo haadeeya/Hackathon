@@ -4,7 +4,7 @@ const sceneArrowSelectScene = document.getElementById('sceneArrowSelectScene');
 const sceneArrowSelectNextScene = document.getElementById('sceneArrowSelectNextScene');
 
 var imageUrl = "https://localhost:7215/api/Images/byType?imageType=main"
-var allImagesUrl = "https://localhost:7215/api/Images/"
+var allMinimapImagesUrl = "https://localhost:7215/api/Images/byType?imageType=minimap"
 var sceneUrl = "https://localhost:7215/api/Scenes/";
 console.log(selectedImage.value);
 
@@ -27,7 +27,7 @@ fetch(imageUrl) // Replace with your API endpoint
     });
 
 // Make an API call to fetch data
-fetch(allImagesUrl) // Replace with your API endpoint
+fetch(allMinimapImagesUrl) // Replace with your API endpoint
     .then(response => response.json())
     .then(data => {
 
