@@ -68,59 +68,176 @@
                     <!-- <p>Book <span>Your Stay</span> With Us</p> -->
                     <br /><br />
                 </div>
-                <div class="panel-container">
-                    <form style="width:50%" id="sceneDetails">
-                        <div class="form-group">
-                            <label for="selectedImage">Image</label>
-                            <select class="form-control" id="selectedImage" required>
-                                <option value="">-- Select an option --</option>
-                            </select>
-                        </div><br />
-                        <div class="form-group">
-                            <label for="selectedMinimap">Minimap</label>
-                            <select class="form-control" id="selectedMinimap" required>
-                                <option value="">-- Select an option --</option>
-                            </select>
-                        </div><br />
-                        <div class="form-group">
-                            <label for="txtSceneName">Scene Name</label>
-                            <input class="form-control" type="text" id="txtSceneName" placeholder="Enter Scene Name"
-                                required />
-                        </div><br />
-                        <div class="form-group">
-                            <label for="txtSceneDesc">Scene Description</label>
-                            <input class="form-control" type="text" id="txtSceneDesc"
-                                placeholder="Enter Scene Description" required />
-                        </div><br />
-                        <div class="form-group">
-                            <label for="txtYaw">YAW</label>
-                            <input class="form-control" type="text" id="txtYaw" placeholder="Enter coordinates"
-                                required />
-                        </div><br />
-                        <div class="form-group">
-                            <label for="txtPitch">Pitch</label>
-                            <input class="form-control" type="text" id="txtPitch" placeholder="Enter coordinates"
-                                required />
-                        </div><br />
-                        <div class="form-group">
-                            <label for="txtFov">Field Of View</label>
-                            <input class="form-control" type="text" id="txtFov" placeholder="Enter coordinates"
-                                required />
-                        </div><br/>
-                        <div class="form-group" id="imagePreviewContainer" style="display: none;">
-                            <br/>
-                            <label for="imgPreview">Image Preview</label>
-                            <img id="imgPreview" class="img100" src="assets/img/placeholder.png" />
-                            <br />
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-scene" type="button" role="tab" aria-controls="nav-scene"
+                            aria-selected="true">Add Scene</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-scene-info" type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Add Scene Info</button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-scene-arrow"
+                            type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Add Scene
+                            Arrow</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-scene" role="tabpanel"
+                        aria-labelledby="nav-scene-tab">
+                        <div class="panel-container"><br />
+                            <form style="width:50%" id="sceneDetailsForm">
+                                <div class="form-group">
+                                    <label for="selectedImage">Image</label>
+                                    <select class="form-control" id="selectedImage" required>
+                                        <option value="">-- Select an option --</option>
+                                    </select>
+                                    <span id="hiddenImageId" style="display: none;"></span>
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="selectedMinimap">Minimap</label>
+                                    <select class="form-control" id="selectedMinimap" required>
+                                        <option value="">-- Select an option --</option>
+                                    </select>
+                                    <span id="hiddenMinimapId" style="display: none;"></span>
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="txtSceneName">Scene Name</label>
+                                    <input class="form-control" type="text" id="txtSceneName" name="txtSceneName"
+                                        placeholder="Enter Scene Name" required />
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="txtSceneDesc">Scene Description</label>
+                                    <input class="form-control" type="text" id="txtSceneDesc" name="txtSceneDesc"
+                                        placeholder="Enter Scene Description" required />
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="txtYaw">YAW</label>
+                                    <input class="form-control" type="text" id="txtYaw" placeholder="Enter coordinates"
+                                        name="txtYaw" required />
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="txtPitch">Pitch</label>
+                                    <input class="form-control" type="text" id="txtPitch"
+                                        placeholder="Enter coordinates" required />
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="txtFov">Field Of View</label>
+                                    <input class="form-control" type="text" id="txtFov" placeholder="Enter coordinates"
+                                        name="txtFov" required />
+                                </div><br />
+                                <div class="form-group" id="imagePreviewContainer">
+                                    <br />
+                                    <label for="imgPreview">Image Preview</label>
+                                    <img id="imgPreview" class="img100" src="assets/img/placeholder.png" />
+                                    <br />
+                                </div>
+                                <div class="form-group" id="miniMapPreviewContainer">
+                                    <br /><br />
+                                    <label for="miniMapPreview">Minimap Preview</label>
+                                    <img id="miniMapPreview" class="img100" src="assets/img/placeholder.png" />
+                                    <br />
+                                </div>
+                                <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                            </form>
                         </div>
-                        <div class="form-group" id="miniMapPreviewContainer" style="display: none;">
-                            <br/><br/>
-                            <label for="miniMapPreview">Minimap Preview</label>
-                            <img id="miniMapPreview" class="img100" src="assets/img/placeholder.png" />
-                            <br />
-                        </div>
-                        <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
-                    </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-scene-info" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <!--Info content goes here-->
+                        <form><br />
+                            <div class="form-group">
+                                <label for="sceneInfoSelectedScene">Scene</label>
+                                <select class="form-control" id="sceneInfoSelectedScene" required>
+                                    <option value="">-- Select an option --</option>
+                                </select>
+                                <span id="hiddenImageId" style="display: none;"></span>
+                            </div><br />
+                            <div class="form-group">
+                                <label for="sceneInfoSelectedScene">Image Id</label>
+                                <select class="form-control" id="sceneInfoSelectedImage" required>
+                                    <option value="">-- Select an option --</option>
+                                </select>
+                                <span id="hiddenImageId" style="display: none;"></span>
+                            </div><br />
+                            <div class="form-group">
+                                <label for="txtSceneInfoName">Scene Info Name</label>
+                                <input class="form-control" type="text" id="txtSceneInfoName" name="txtSceneInfoName"
+                                    placeholder="Enter Scene Info Name" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtSceneInfoDesc">Scene Info Description</label>
+                                <input class="form-control" type="text" id="txtSceneInfoDesc" name="txtSceneInfoDesc"
+                                    placeholder="Enter Scene Info Description" required />
+                            </div><br />
+                            <div class="form-group">
+                                <label for="txtInfoYaw">YAW</label>
+                                <input class="form-control" type="text" id="txtInfoYaw" placeholder="Enter coordinates"
+                                    name="txtInfoYaw" required />
+                            </div><br />
+                            <div class="form-group">
+                                <label for="txtInfoPitch">Pitch</label>
+                                <input class="form-control" type="text" id="txtInfoPitch"
+                                    placeholder="Enter coordinates" required />
+                            </div><br />
+                            <button type="button" class="btn btn-success" id="btnSceneInfoSubmit">Submit</button>
+                        </form>
+                    </div>
+                    <!--end-->
+                    <div class="tab-pane fade" id="nav-scene-arrow" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <form><br />
+                            <div class="form-group">
+                                <label for="sceneArrowSelectScene">Scene</label>
+                                <select class="form-control" id="sceneArrowSelectScene" required>
+                                    <option value="">-- Select an option --</option>
+                                </select>
+                            </div><br />
+                            <div class="form-group">
+                                <label for="txtArrowName">Arrow Name</label>
+                                <input class="form-control" type="text" id="txtArrowName" name="txtArrowName"
+                                    placeholder="Enter Arrow Name" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="sceneArrowSelectNextScene">Next Scene</label>
+                                <select class="form-control" id="sceneArrowSelectNextScene" required>
+                                    <option value="">-- Select an option --</option>
+                                </select>
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtArrowYaw">YAW</label>
+                                <input class="form-control" type="text" id="txtArrowYaw" placeholder="Enter coordinates"
+                                    name="txtInfoYaw" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtArrowPitch">Pitch</label>
+                                <input class="form-control" type="text" id="txtArrowPitch"
+                                    placeholder="Enter coordinates" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtArrowOffsetYaw">Offset YAW</label>
+                                <input class="form-control" type="text" id="txtArrowOffsetYaw" placeholder="Enter coordinates"
+                                    name="txtInfoYaw" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtArrowOffsetPitch">Offset Pitch</label>
+                                <input class="form-control" type="text" id="txtArrowOffsetPitch"
+                                    placeholder="Enter coordinates" required />
+                            </div><br />
+
+                            <div class="form-group">
+                                <label for="txtArrowOffsetFov">Offset Field of view</label>
+                                <input class="form-control" type="text" id="txtArrowOffsetFov"
+                                    placeholder="Enter coordinates" required />
+                            </div><br />
+
+                            <button type="button" class="btn btn-success" id="btnSceneArrowSubmit">Submit</button>
+                        </form>
+                    </div>
+
                 </div>
         </section><!-- End Book A Table Section -->
     </main><!-- End #main -->
